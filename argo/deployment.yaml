@@ -56,38 +56,20 @@ spec:
       targetPort: 8080
   type: ClusterIP
 ---
-kind: Ingress
-apiVersion: networking.k8s.io/v1
-metadata:
-  name: roadtripfinder
-spec:
-  rules:
-    - host: roadtripfinder.eniworks.net
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: roadtripfinder
-                port:
-                  number: 8080
-#---
-#apiVersion: autoscaling/v2beta2
-#kind: HorizontalPodAutoscaler
+#kind: Ingress
+#apiVersion: networking.k8s.io/v1
 #metadata:
 #  name: roadtripfinder
 #spec:
-#  scaleTargetRef:
-#    apiVersion: apps/v1
-#    kind: Deployment
-#    name: roadtripfinder
-#  minReplicas: 1
-#  maxReplicas: 2
-#  metrics:
-#  - type: Resource
-#    resource:
-#      name: cpu
-#      target:
-#        type: Utilization
-#        averageUtilization: 80
+#  rules:
+#    - host: roadtripfinder.eniworks.net
+#      http:
+#        paths:
+#          - path: /\
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: roadtripfinder
+#                port:
+#                  number: 8080
+#---\n#apiVersion: autoscaling/v2beta2\n#kind: HorizontalPodAutoscaler\n#metadata:\n#  name: roadtripfinder\n#spec:\n#  scaleTargetRef:\n#    apiVersion: apps/v1\n#    kind: Deployment\n#    name: roadtripfinder\n#  minReplicas: 1\n#  maxReplicas: 2\n#  metrics:\n#  - type: Resource\n#    resource:\n#      name: cpu\n#      target:\n#        type: Utilization\n#        averageUtilization: 80\n
